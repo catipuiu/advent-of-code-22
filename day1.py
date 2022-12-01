@@ -1,3 +1,6 @@
+from math import inf
+
+
 def transformInList(str):
     newArr = []
     counter = 0
@@ -8,7 +11,9 @@ def transformInList(str):
         else:
             counter += int(nr)
 
-    return max(newArr)
+    newArr = sorted(newArr, reverse=True)
+    newCouter = newArr[0] + newArr[1] + newArr[2]
+    print(newCouter)
 
 
 transformInList(
