@@ -7,25 +7,88 @@
 def strategy(str):
     sum_of_current_round = 0
     scores = {
-        # a - rock - x
-        # b - paper -y
-        # c - scissors-z
-        "A X": 4,
-        "A Y": 8,
-        "A Z": 3,
-        "B X": 1,
-        "B Y": 5,
-        "B Z": 9,
-        "C X": 7,
-        "C Y": 2,
-        "C Z": 6,
+        # a - rock - x (lose)
+        # b - paper -y (draw)
+        # c - scissors-z (win)
+        "A X": 3,  # 4,
+        "A Y": 4,  # 8 end in a 3
+        "A Z": 8,  # 3,
+        "B X": 1,  # 1,
+        "B Y": 5,  # 5,
+        "B Z": 9,  # 9,
+        "C X": 2,  # 7,
+        "C Y": 6,  # 2,
+        "C Z": 7,  # 6,
     }
 
     for move in str.split("\n"):
         if move in scores:
             sum_of_current_round += scores[move]
+            print(scores[move])
 
     print(sum_of_current_round)
+
+
+# import sys
+
+# value = {
+#     'X': 1,
+#     'Y': 2,
+#     'Z': 3,
+# }
+
+# score = {
+#     ('A', 'X'): 3,
+#     ('A', 'Y'): 6,
+#     ('A', 'Z'): 0,
+#     ('B', 'X'): 0,
+#     ('B', 'Y'): 3,
+#     ('B', 'Z'): 6,
+#     ('C', 'X'): 6,
+#     ('C', 'Y'): 0,
+#     ('C', 'Z'): 3,
+# }
+
+# lines = list(map(tuple, map(str.split, map(str.strip, sys.stdin))))
+
+# ans = 0
+# for l in lines:
+#     ans += (score[l]+value[l[1]])
+# print(ans)
+
+
+# import sys
+
+# value = {
+#     'X': 1,
+#     'Y': 2,
+#     'Z': 3,
+# }
+
+# score = {
+#     ('A', 'X'): 3,
+#     ('A', 'Y'): 6,
+#     ('A', 'Z'): 0,
+#     ('B', 'X'): 0,
+#     ('B', 'Y'): 3,
+#     ('B', 'Z'): 6,
+#     ('C', 'X'): 6,
+#     ('C', 'Y'): 0,
+#     ('C', 'Z'): 3,
+# }
+
+# lines = list(map(tuple, map(str.split, map(str.strip, sys.stdin))))
+
+# ans = 0
+# for l in lines:
+#     for choice in 'XYZ':
+#         if l[1]=='X' and score[(l[0], choice)] == 0:
+#             ans += 0 + value[choice]
+#         if l[1]=='Y' and score[(l[0], choice)] == 3:
+#             ans += 3 + value[choice]
+#         if l[1]=='Z' and score[(l[0], choice)] == 6:
+#             ans += 6 + value[choice]
+# print(ans)
 
 
 strategy(
