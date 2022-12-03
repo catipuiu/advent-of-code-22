@@ -93,12 +93,49 @@ def findMisplacedItem(str):
     lines = str.split("\n")
     for i in range(0, len(lines), 3):
         a, b, c = lines[i : i + 3]
-        A, B, C = set(a), set(b), set(c)
+        # A, B, C = set(a), set(b), set(c)
         for x in alphabet:
-            if x in A and x in B and x in C:
+            if x in a and x in b and x in c:
                 counter += priority[x]
 
     print(counter)
+
+
+# import sys
+
+# ans = 0
+# for line in map(str.strip, sys.stdin):
+#     n = len(line)
+#     left, right = line[:n // 2], line[n // 2:]
+
+#     assert (len(left) == len(right))
+
+#     common = set(left).intersection(set(right))
+#     assert (len(common) == 1)
+
+#     x = common.pop()
+#     ans += ord(x.lower()) - ord('a') + 1
+#     if x != x.lower():
+#         ans += 26
+
+# print(ans)
+
+
+# ans = 0
+# lines = list(map(str.strip, sys.stdin))
+
+# for i in range(len(lines) // 3):
+#     a, b, c = lines[3 * i:3 * i + 3]
+#     common = set(a).intersection(set(b)).intersection(set(c))
+
+#     assert (len(common) == 1)
+#     x = common.pop()
+
+#     ans += ord(x.lower()) - ord('a') + 1
+#     if x != x.lower():
+#         ans += 26
+
+# print(ans)
 
 
 findMisplacedItem(
