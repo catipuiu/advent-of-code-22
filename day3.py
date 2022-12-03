@@ -8,6 +8,10 @@
 # uppercase (A-Z =27 - 52)
 # priority = placement of the letter in the alphabet
 # return the sum of the priorities of these items (the repeted items)
+
+import string
+
+
 def splitStringinTwo(value):
     string1, string2 = value[: len(value) // 2], value[len(value) // 2 :]
     return string1, string2
@@ -17,6 +21,7 @@ def splitStringinTwo(value):
 
 
 def findMisplacedItem(str):
+    # to change this into ASCII
     priority = {
         "a": 1,
         "b": 2,
@@ -72,13 +77,26 @@ def findMisplacedItem(str):
         "Z": 52,
     }
 
+    # part 1
+    # counter = 0
+    # for i in str.split("\n"):
+    #     left, right = splitStringinTwo(i)
+    #     for j in set(left):
+    #         for k in set(right):
+    #             if j == k:
+    #                 counter += priority[j]
+
+    # part2
     counter = 0
-    for i in str.split("\n"):
-        left, right = splitStringinTwo(i)
-        for j in set(left):
-            for k in set(right):
-                if j == k:
-                    counter += priority[j]
+    alphabet = string.ascii_letters
+    # print(alphabet)
+    lines = str.split("\n")
+    for i in range(0, len(lines), 3):
+        a, b, c = lines[i : i + 3]
+        A, B, C = set(a), set(b), set(c)
+        for x in alphabet:
+            if x in A and x in B and x in C:
+                counter += priority[x]
 
     print(counter)
 
