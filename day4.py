@@ -18,8 +18,8 @@ def findOverlap(str):
         x, y = map(int, right.split("-"))
 
         # part 1
-        # if (int(a) <= int(x) and int(b) >= int(y)) or (
-        #     int(a) >= int(x) and int(b) <= int(y)
+        # if (a <= x and b >= y) or (
+        #     a >= x and b <= y
         # ):
         #     counter += 1
 
