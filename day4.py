@@ -17,9 +17,14 @@ def findOverlap(str):
         a, b = map(int, left.split("-"))
         x, y = map(int, right.split("-"))
 
-        if (int(a) <= int(x) and int(b) >= int(y)) or (
-            int(a) >= int(x) and int(b) <= int(y)
-        ):
+        # part 1
+        # if (int(a) <= int(x) and int(b) >= int(y)) or (
+        #     int(a) >= int(x) and int(b) <= int(y)
+        # ):
+        #     counter += 1
+
+        # part2
+        if not (b < x) and not (a > y):
             counter += 1
 
     print(counter)
