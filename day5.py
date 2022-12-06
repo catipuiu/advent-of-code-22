@@ -17,20 +17,22 @@ def getTopCrates(str):
         words = operation.split()
         quantity, source, target = map(int, (words[1], words[3], words[5]))
 
-        rez = []
+        buff = []
         while quantity:
-            rez.append(dic_of_crates[source].pop())
+            buff.append(dic_of_crates[source].pop())
             quantity -= 1
 
-        # dic_of_crates[target].append(rez[::-1])
+        # part 2
+        # buff are `quantity` elemente proaspat scoase din sursa
+        for x in buff[::-1]:
+            dic_of_crates[target].append(x)
 
-        print(dic_of_crates)
+    # part 1
+    rezult = ""
+    for nr in range(1, 10):
+        rezult += (dic_of_crates[nr])[-1]
 
-    # rezult = ""
-    # for nr in range(1, 10):
-    #     rezult += (dic_of_crates[nr])[-1]
-
-    # print(rezult)
+    print(rezult)
 
 
 getTopCrates(
