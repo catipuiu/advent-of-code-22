@@ -58,6 +58,18 @@ def compute_sol(file):
         compute_sol(child)
 
 
+# part 2
+# ans = math.inf
+# def compute_sol(file):
+#     global ans, total_capacity, required, root
+
+#     if file.is_dir and (root.size - file.size + required <= total_capacity):
+#         ans = min(ans, file.size)
+
+#     for child in file.children:
+#         compute_sol(child)
+
+
 root = File("/", is_dir=True)
 assert root.parent == root
 assert root.parent.parent.parent == root
@@ -115,3 +127,11 @@ display_tree(root)
 compute_sol(root)
 
 print("answer is: %d" % ans)
+
+# part 2
+# total_capacity = 70000000
+# required = 30000000
+
+# compute_sol(root)
+
+# print("answer is: %d" % ans)
